@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus FindIt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">
+          <div class="brand-mark">CF</div>
+          <span>Campus FindIt</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#browse">Browse</a>
+          <a href="#report">Report Item</a>
+          <a href="#matches">Matches</a>
+        </nav>
+        <button class="primary-btn">Report now</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Lost something on campus?</span>
+            <h1>Find what’s lost. Reconnect fast.</h1>
+            <p>
+              Campus FindIt helps students report lost belongings, share found items,
+              and quickly match them with the right owner using one simple platform.
+            </p>
+            <div class="hero-actions">
+              <a href="#report" class="primary-btn">Report item</a>
+              <a href="#browse" class="secondary-btn">Browse listings</a>
+            </div>
+            <div class="stats-row">
+              <div>
+                <strong>240+</strong>
+                <span>items recovered</span>
+              </div>
+              <div>
+                <strong>1.8k</strong>
+                <span>students active</span>
+              </div>
+              <div>
+                <strong>96%</strong>
+                <span>match success</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="glass-card">
+              <span class="mini-tag">Recently matched</span>
+              <h3>Blue student ID found</h3>
+              <div class="match-details">
+                <div>
+                  <label>Location</label>
+                  <p>Library, Level 2</p>
+                </div>
+                <div>
+                  <label>Owner</label>
+                  <p>Priya S.</p>
+                </div>
+              </div>
+              <div class="mini-image"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="browse" class="listings">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow secondary">Recent listings</span>
+              <h2>Lost and found around campus</h2>
+            </div>
+            <button class="filter-btn active">All</button>
+          </div>
+
+          <div class="toolbar">
+            <div class="search-box">
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Search by item name, location, or keyword"
+              />
+            </div>
+            <select id="categoryFilter">
+              <option value="all">All categories</option>
+              <option value="ID Card">ID Card</option>
+              <option value="Books">Books</option>
+              <option value="Wallet">Wallet</option>
+              <option value="Earphones">Earphones</option>
+              <option value="Bags">Bags</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Accessories">Accessories</option>
+            </select>
+            <select id="typeFilter">
+              <option value="all">All types</option>
+              <option value="Lost">Lost</option>
+              <option value="Found">Found</option>
+            </select>
+          </div>
+
+          <p id="databaseStatus" class="database-status" role="status" aria-live="polite">Connecting to listings…</p>
+
+          <div id="itemGrid" class="item-grid"></div>
+        </div>
+      </section>
+
+      <section id="matches" class="matches">
+        <div class="container">
+          <div class="section-heading narrow">
+            <div>
+              <span class="eyebrow secondary">Smart matches</span>
+              <h2>Likely matches for students</h2>
+            </div>
+          </div>
+
+          <div class="match-list">
+            <article class="match-card">
+              <div class="match-icon">🎒</div>
+              <div>
+                <h4>Red backpack</h4>
+                <p>Found near the cafeteria. Matches a reported lost bag with a water bottle and notebook.</p>
+              </div>
+              <button class="tiny-btn">View match</button>
+            </article>
+            <article class="match-card">
+              <div class="match-icon">🎧</div>
+              <div>
+                <h4>Wireless earbuds</h4>
+                <p>Case color and model match a student’s lost item from the bus stop.</p>
+              </div>
+              <button class="tiny-btn">View match</button>
+            </article>
+            <article class="match-card">
+              <div class="match-icon">🪪</div>
+              <div>
+                <h4>Student ID card</h4>
+                <p>Found by a library staff member and marked with the same department information.</p>
+              </div>
+              <button class="tiny-btn">View match</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="report" class="report-panel">
+        <div class="container report-grid">
+          <div class="report-copy">
+            <span class="eyebrow secondary">Report an item</span>
+            <h2>Help reunite belongings with their owners</h2>
+            <p>
+              Add a photo, short description, and location so the right student can find their item faster.
+            </p>
+            <ul>
+              <li>Easy reporting for lost or found items</li>
+              <li>Search and filter by category or location</li>
+              <li>Direct student-to-student connection</li>
+            </ul>
+          </div>
+
+          <form id="reportForm" class="report-form">
+            <div class="form-row">
+              <div>
+                <label for="itemName">Item name</label>
+                <input id="itemName" name="itemName" type="text" placeholder="e.g., Blue notebook" required />
+              </div>
+              <div>
+                <label for="category">Category</label>
+                <select id="category" name="category">
+                  <option>ID Card</option>
+                  <option>Books</option>
+                  <option>Wallet</option>
+                  <option>Earphones</option>
+                  <option>Bags</option>
+                  <option>Electronics</option>
+                  <option>Accessories</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label for="type">Report type</label>
+                <select id="type" name="type">
+                  <option>Lost</option>
+                  <option>Found</option>
+                </select>
+              </div>
+              <div>
+                <label for="location">Location</label>
+                <input id="location" name="location" type="text" placeholder="Library, bus stop, lab" required />
+              </div>
+            </div>
+
+            <div>
+              <label for="description">Description</label>
+              <textarea id="description" name="description" rows="4" placeholder="Describe color, brand, and any unique features" required></textarea>
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label for="contactName">Contact name</label>
+                <input id="contactName" name="contactName" type="text" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="contactEmail">Email</label>
+                <input id="contactEmail" name="contactEmail" type="email" placeholder="you@campus.edu" required />
+              </div>
+            </div>
+
+            <label class="upload-box" for="photoUpload">
+              <input id="photoUpload" type="file" accept="image/*" />
+              <span>Upload item photo</span>
+            </label>
+
+            <button type="submit" class="primary-btn submit-btn">Submit listing</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-row">
+        <p>© 2026 Campus FindIt</p>
+        <div>
+          <a href="#browse">Listings</a>
+          <a href="#report">Report</a>
+          <a href="#matches">Matches</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast">Your report has been added.</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
